@@ -1,0 +1,3 @@
+FROM nginx
+
+COPY mirrors.linux.io.conf /etc/nginx/conf.d/
