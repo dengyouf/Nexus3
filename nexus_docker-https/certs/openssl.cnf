@@ -1,0 +1,26 @@
+[req_distinguished_name]
+countryName = CN
+countryName_default = CN
+stateOrProvinceName = BJ
+stateOrProvinceName_default = BJ
+localityName = changping
+localityName_default = changping
+organizationalUnitName = devops
+organizationalUnitName_defalut = devops
+commonName = linux.io
+commonName_default = linux.io
+commonName_max = 64
+
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[v3_req]
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = linux.io
+DNS.2= *.linux.io
+
