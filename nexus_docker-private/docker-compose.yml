@@ -1,0 +1,24 @@
+version: "3"
+services:
+  nexus3:
+    image: sonatype/nexus3:3.41.0
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+      - 8082:8082
+      - 8083:8083
+    volumes:
+      - nexus-data:/nexus-data
+
+  proxy:
+    image: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile.proxy
+    restart: unless-stopped
+    ports:
+     - 80:80 
+
+volumes:
+  nexus-data:
+    driver: local
